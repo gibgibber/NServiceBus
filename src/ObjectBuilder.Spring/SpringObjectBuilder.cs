@@ -76,7 +76,7 @@
 
             if (de.MoveNext())
             {
-                return de.Value;
+                return de.Current.Value;
             }
             
             throw new ArgumentException(string.Format("{0} has not been configured. In order to avoid this exception, check the return value of the 'HasComponent' method for this type.", typeToBuild));
@@ -90,7 +90,7 @@
             var de = dict.GetEnumerator();
             while (de.MoveNext())
             {
-                yield return de.Entry.Value;
+                yield return de.Current.Value;
             }
         }
 
